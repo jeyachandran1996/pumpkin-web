@@ -1,0 +1,28 @@
+<nb-card>
+    <nb-card-header>Download Report</nb-card-header>
+    <nb-card-body>
+        <table class="table table-bordered">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">Image Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Total Downloads</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngIf="images.length>0">
+                <tr *ngFor="let image of images">
+                  <td>{{image.name}}</td>
+                  <td>{{image.category}}</td>
+                  <td>{{image.downloads}}</td>
+                </tr>
+              </ng-container>
+              <ng-container *ngIf="images.length==0">
+                <tr>
+                  <td colspan="3" class="text-center"><b>No Images</b></td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+    </nb-card-body>
+</nb-card>

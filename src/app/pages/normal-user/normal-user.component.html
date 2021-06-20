@@ -1,0 +1,17 @@
+<nb-layout>
+    <nb-layout-header fixed style="background-color: #fa0;"><h6 >Assignment - Normal User Login</h6></nb-layout-header>
+
+    <nb-sidebar>
+        <b>Category</b>
+        <br>
+        <hr/>
+        <ng-container *ngFor="let category of categories, let i=index">
+            <nb-checkbox [checked]="category.checked" (checkedChange)="categoryChange(i)" status="warning">{{category.name}}</nb-checkbox><br>
+        </ng-container>
+        <!-- <nb-menu (checkedChange)="toggle($event)" [items]="menus"></nb-menu> -->
+    </nb-sidebar>
+
+    <nb-layout-column>
+        <router-outlet></router-outlet>
+    </nb-layout-column>
+  </nb-layout>
