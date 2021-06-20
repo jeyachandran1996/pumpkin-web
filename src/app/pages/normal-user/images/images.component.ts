@@ -9,13 +9,12 @@ import { MessageService } from 'src/app/services/messages/message.service';
 })
 export class ImagesComponent implements OnInit {
   categories: any[] = []
-
+  images:any[] = []
   constructor(
     private imageService : ImagesService,
     private msgService: MessageService
   ) {
     this.msgService.getMessgae().subscribe((data: any)=>{
-      console.log(data)
       this.filterCategories(data)
     },
     (error: any)=>{
@@ -32,16 +31,19 @@ export class ImagesComponent implements OnInit {
       return o.checked
     })
     .map(o=> o.name)
-    console.log(this.categories)
     this.getImages()
   }
 
   getImages(){
     this.imageService.getImages({data:this.categories}).subscribe((data: any)=>{
-      console.log(data)
+      if(data.success)
+        this.images = data.data
+      else
+        this.images = []
     },
     (error: any)=>{
       console.log(error)
+      this.images = []
     })
   }
 

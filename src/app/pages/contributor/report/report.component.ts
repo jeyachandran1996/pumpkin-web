@@ -18,7 +18,6 @@ export class ReportComponent implements OnInit {
 
   getReport(){
     this.userService.getReport().subscribe((data:any)=>{
-      console.log(data)
       if(data.success){
         this.images = data.data
       }

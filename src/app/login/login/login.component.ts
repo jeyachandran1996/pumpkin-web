@@ -39,10 +39,8 @@ export class LoginComponent implements OnInit {
   }
 
   signUp(){
-    console.log(this.signUpForm)
     this.signUpService.signUp(this.signUpForm.value)
     .subscribe((data:any)=>{
-      console.log(data)
       if(data.success){
         this.signUpForm.reset()
         this.showToast(data.message, "success")
@@ -58,9 +56,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log(this.loginForm)
     this.loginService.login(this.loginForm.value).subscribe((data: any)=>{
-      console.log(data)
       if(data.success){
         localStorage.setItem('access_token', data.token)
         if(data.routeTo=='contributor'){

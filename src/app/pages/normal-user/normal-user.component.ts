@@ -20,8 +20,6 @@ export class NormalUserComponent implements OnInit {
   }
 
   categoryChange(i){
-    console.log(i)
-    console.log(this.categories)
     this.categories[i]["checked"] = !this.categories[i]["checked"]
     this.msgService.sendMessage(this.categories)
   }

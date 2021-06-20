@@ -30,8 +30,6 @@ export class UploadComponent implements OnInit {
   }
 
   check(e){
-    console.log(e)
-    console.log(this.uploadForm.value)
   }
 
 }
